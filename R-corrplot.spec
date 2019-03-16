@@ -4,21 +4,17 @@
 #
 Name     : R-corrplot
 Version  : 0.84
-Release  : 13
+Release  : 14
 URL      : https://cran.r-project.org/src/contrib/corrplot_0.84.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/corrplot_0.84.tar.gz
 Summary  : Visualization of a Correlation Matrix
 Group    : Development/Tools
 License  : GPL-2.0
 Requires: R-RColorBrewer
-Requires: R-evaluate
 Requires: R-markdown
-Requires: R-stringi
 BuildRequires : R-RColorBrewer
-BuildRequires : R-evaluate
 BuildRequires : R-markdown
-BuildRequires : R-stringi
-BuildRequires : clr-R-helpers
+BuildRequires : buildreq-R
 
 %description
 It also contains some algorithms to do matrix reordering. In addition,
@@ -33,11 +29,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1523296306
+export SOURCE_DATE_EPOCH=1552730953
 
 %install
+export SOURCE_DATE_EPOCH=1552730953
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1523296306
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -72,8 +68,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library corrplot|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  corrplot || :
 
 
 %files
@@ -104,3 +99,7 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/corrplot/help/paths.rds
 /usr/lib64/R/library/corrplot/html/00Index.html
 /usr/lib64/R/library/corrplot/html/R.css
+/usr/lib64/R/library/corrplot/tests/testthat.R
+/usr/lib64/R/library/corrplot/tests/testthat/test-colorlegend.R
+/usr/lib64/R/library/corrplot/tests/testthat/test-cor-mtest.R
+/usr/lib64/R/library/corrplot/tests/testthat/test-corrplot.R
