@@ -4,7 +4,7 @@
 #
 Name     : R-corrplot
 Version  : 0.90
-Release  : 37
+Release  : 38
 URL      : https://cran.r-project.org/src/contrib/corrplot_0.90.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/corrplot_0.90.tar.gz
 Summary  : Visualization of a Correlation Matrix
